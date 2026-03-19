@@ -50,10 +50,6 @@ claude mcp add-skill vibe-ship https://github.com/ar-gen-tin/vibe-ship
 - 不替你做产品决策（但会问你问题帮你想清楚）
 - 不生成模板项目
 
-## 背景
-
-详见文章：[用 AI 写了三万行代码，我连自己用的什么语言都不知道](https://mp.weixin.qq.com/s/xxx)
-
 ## License
 
 MIT
