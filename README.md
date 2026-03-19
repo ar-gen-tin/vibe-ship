@@ -1,54 +1,82 @@
-# vibe-ship — 纯粹 Vibe 少踩坑
+<div align="center">
 
-给不懂代码的 Vibe Coder 的开发引导流程。不教你写代码，教你按什么顺序做事。
+# vibe-ship
 
-这个技能从三个真实项目（[Rockpile](https://github.com/nicekate/Rockpile)、[Spottt](https://github.com/ar-gen-tin/spottt)、[odds](https://github.com/ar-gen-tin/odds)）、60+ 个 bug、两次技术栈推倒重来、一次删库重建中提炼出来。
+**A guided development workflow for non-coders — from idea to shipped product**
 
-## 八步流程
+[![Claude Code](https://img.shields.io/badge/Claude_Code-Skill-blueviolet?logo=anthropic&logoColor=white)](https://claude.ai/claude-code)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+[中文版](README.zh.md)
+
+</div>
+
+---
+
+## What is vibe-ship?
+
+vibe-ship is a Claude Code skill that guides you through building and shipping software — step by step, through questions — even if you've never written a line of code.
+
+It was distilled from three real projects ([Rockpile](https://github.com/nicekate/Rockpile), [Spottt](https://github.com/ar-gen-tin/spottt), [odds](https://github.com/ar-gen-tin/odds)), 60+ bugs, two full tech stack rewrites, and one repository nuke-and-rebuild.
+
+One rule: **follow the order, don't skip steps.**
+
+---
+
+## The 8 Steps
 
 ```
-想清楚 → 问技术栈 → 最小版本 → 走通发布 → 安全扫描 → 做设计 → 砍功能 → 记录一切
+Define → Tech Stack → MVP → Ship Path → Security → Design → Cut Features → Log Pitfalls
+ [1]       [2]        [3]     [4]         [5]       [6]        [7]            [8]
 ```
 
-1. **想清楚再开口** — 给谁用？核心功能是什么？最像的产品是什么？
-2. **问技术栈** — 用什么做？为什么？有更好的方案吗？
-3. **最小版本先跑起来** — 只做核心功能，不做设计，不做额外功能
-4. **走通发布流程** — 签名、打包、部署，越早走通越不慌
-5. **安全扫描** — 推送前检查密钥、邮箱、本地路径
-6. **现在可以做设计了** — 最多 3 个方案，选一个做下去
-7. **砍功能** — "这个不做，产品还能用吗？"能的话先别做
-8. **记录一切** — AI 没有记忆，你替它记
+| Step | What happens |
+|------|-------------|
+| 1. **Define before you type** | Who is this for? One core feature? What's the closest existing product? |
+| 2. **Ask about tech stack** | What to build with? Why? Are there better options? |
+| 3. **Ugliest working version** | Core feature only. No design, no i18n, no extras. |
+| 4. **Walk the ship path** | Signing, packaging, deployment — do it early, not last. |
+| 5. **Security scan** | Check for leaked keys, emails, local paths before pushing. Cannot skip. |
+| 6. **Now do design** | 3 directions max. Pick one, commit. |
+| 7. **Cut features** | "Does the product still work without this?" If yes, don't build it. |
+| 8. **Log everything** | AI has no memory. You keep the notes for next time. |
 
-## 安装
+---
 
-### Claude Code
+## Install
 
 ```bash
-claude mcp add-skill vibe-ship https://github.com/ar-gen-tin/vibe-ship
+# Clone into your Claude Code skills directory
+git clone https://github.com/ar-gen-tin/vibe-ship.git ~/.claude/skills/vibe-ship
 ```
 
-或者手动把 `SKILL.md` 复制到你的 `.claude/skills/vibe-ship/` 目录下。
+Or manually copy `SKILL.md` to `~/.claude/skills/vibe-ship/`.
 
-### 使用
+## Usage
 
 ```bash
-/vibe-ship              # 从头开始
-/vibe-ship --step 3     # 跳到某一步
-/vibe-ship --status     # 查看进度
+/vibe-ship              # Start from Step 1
+/vibe-ship --status     # Check progress
 ```
 
-## 这个技能会做什么
+---
 
-- 每一步都会问你问题，等你回答了再往下走
-- 开发过程中你想加的额外功能会被记到"以后再说清单"，到第七步再审查
-- 第五步安全扫描不可跳过
-- 所有技术术语会被翻译成你能听懂的话
+## What it does
 
-## 这个技能不会做什么
+- Asks you questions at every step — waits for your answer before moving on
+- Parks feature requests in a "later list" — reviewed only at Step 7
+- Security scan at Step 5 is mandatory
+- Translates all technical jargon into plain language
+- After MVP: suggests running `/code-review` for a quality check
+- Before shipping: optionally run `/team` for multi-perspective review
 
-- 不教你写代码
-- 不替你做产品决策（但会问你问题帮你想清楚）
-- 不生成模板项目
+## What it doesn't do
+
+- Doesn't teach you to code
+- Doesn't make product decisions for you (but helps you think clearly)
+- Doesn't generate boilerplate projects
+
+---
 
 ## License
 
